@@ -22,8 +22,11 @@
             display: none;
         }
 
-        tr, th, td{
+        th, td{
             border: 1px black solid;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 5% 4%;
         }
     </style>
 </head>
