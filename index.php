@@ -7,6 +7,22 @@
     <title>Halaman Utama</title>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>No Absen</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>Zaki Andriansa</td>
+            <td>10 PPLG 1</td>
+            <td>42</td>
+            <td>
+                <a href="#">Edit</a>
+                <a href="#">Hapus</a>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
