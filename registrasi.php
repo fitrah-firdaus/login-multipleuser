@@ -20,12 +20,12 @@
 
         <br>
 
-        <label for="cpassword">Confirm password : </label>
-        <input type="cpassword" name="cpassword" id="cpassword">
+        <label for="kpassword">Konfirmasi password : </label>
+        <input type="kpassword" name="kpassword" id="kpassword">
 
         <br>
 
-        <button type="submit">Login!</button>
+        <button type="submit">Masuk!</button>
     </form>
 </body>
 </html>
