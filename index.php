@@ -1,6 +1,6 @@
 <?php
 
-$user = "user";
+$user = "admin";
 
 if ($user == "user") {
     $ghost = "ghost";
@@ -42,7 +42,7 @@ if ($user == "admin") {
             if ($ghost == "") {
                 echo "<th>Aksi</th>";
             } else {
-                echo "<th></th>";
+                echo "";
             }
             ?>
 
@@ -58,7 +58,7 @@ if ($user == "admin") {
                     <a href=\"#\">Hapus</a>
                 </td>";
             } else {
-                echo "<td></td>";
+                echo "";
             }
             ?>
         </tr>
