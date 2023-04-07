@@ -24,23 +24,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Utama</title>
-    <style>
-        th,
-        td {
-            border: 1px black solid;
-            text-align: center;
-            box-sizing: border-box;
-            padding: 5% 4%;
-        }
-    </style>
 </head>
 
 <body>
-    <table>
+    <table border="1" cellpadding="10" cellspacing="0">
         <tr>
-            <th>Nama</th>
-            <th>Kelas</th>
-            <th>No Absen</th>
+            <th>No.</th>
+            <th>Kopi</th>
+            <th>Harga</th>
+            <th>Gambar</th>
             <?php
             if ($ghost == "") {
                 echo "<th>Aksi</th>";
@@ -51,15 +43,17 @@
 
         </tr>
 
+        <?php $no = 1 ?>
         <?php foreach( $query as $q ) : ?>
         <tr>
+            <td><?= $no++ ?></td>
             <td><?= $q["nama_kopi"] ?></td>
             <td><?= $q["harga"] ?></td>
-            <td><img src="img/menu/<?= $q["gambar"] ?>" alt="menu kopi"></td>
+            <td><img src="img/menu/<?= $q["gambar"] ?>" alt="menu kopi" width="200"></td>
             <?php
             if ($ghost == "") {
                 echo "<td>
-                    <a href=\"#\">Edit</a>
+                    <a href=\"#\">Edit</a> |
                     <a href=\"#\">Hapus</a>
                 </td>";
             } else {
