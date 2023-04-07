@@ -1,13 +1,16 @@
 <?php
 
-$user = "admin";
+    require 'function.php';
+    $query = query("SELECT * FROM kopi");
 
-if ($user == "user") {
-    $ghost = "ghost";
-}
-if ($user == "admin") {
-    $ghost = "";
-}
+    $user = "admin";
+
+    if ($user == "user") {
+        $ghost = "ghost";
+    }
+    if ($user == "admin") {
+        $ghost = "";
+    }
 
     
 
@@ -47,10 +50,12 @@ if ($user == "admin") {
             ?>
 
         </tr>
+
+        <?php foreach( $query as $q ) : ?>
         <tr>
-            <td>Zaki Andriansa</td>
-            <td>10 PPLG 1</td>
-            <td>42</td>
+            <td><?= $q["nama_kopi"] ?></td>
+            <td><?= $q["harga"] ?></td>
+            <td><img src="img/menu/<?= $q["gambar"] ?>" alt="menu kopi"></td>
             <?php
             if ($ghost == "") {
                 echo "<td>
@@ -62,6 +67,7 @@ if ($user == "admin") {
             }
             ?>
         </tr>
+        <?php endforeach ?>
     </table>
 </body>
 
