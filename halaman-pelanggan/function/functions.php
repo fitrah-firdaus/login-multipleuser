@@ -22,16 +22,17 @@
     function tambah($data){
         global $conn;
 
-        $nama_kopi = htmlspecialchars($data["nama_kopi"]);
-        $harga = htmlspecialchars($data["harga"]);
+        $nama_pelanggan = htmlspecialchars($data["nama_pelanggan"]);
+        $email = htmlspecialchars($data["email"]);
+        $no_tlp = htmlspecialchars($data["no_tlp"]);
         $gambar = upload();
 
         if( !$gambar ){
             return false;
         }
 
-        $sql = "INSERT INTO kopi VALUES(
-            '', '$nama_kopi', $harga, '$gambar'
+        $sql = "INSERT INTO pelanggan VALUES(
+            '', '$nama_pelanggan', '$email', '$no_tlp', '$gambar'
         )";
         mysqli_query($conn, $sql);
 
@@ -41,7 +42,7 @@
     // function hapus
     function hapus($id){
         global $conn;
-        mysqli_query($conn, "DELETE FROM kopi WHERE id_kopi = $id");
+        mysqli_query($conn, "DELETE FROM pelanggan WHERE id_pelanggan = $id");
 
         return mysqli_affected_rows($conn);
     }
@@ -50,21 +51,23 @@
     function ubah($data){
         global $conn;
 
-        $id_kopi = $data["id_kopi"];
+        $id_pelanggan = $data["id_pelanggan"];
         $gambarLama = $data["gambarLama"];
-        $nama_kopi = htmlspecialchars($data["nama_kopi"]);
-        $harga = htmlspecialchars($data["harga"]);
+        $nama_pelanggan = htmlspecialchars($data["nama_pelanggan"]);
+        $email = htmlspecialchars($data["email"]);
+        $no_tlp = htmlspecialchars($data["no_tlp"]);
         if( $_FILES["gambar"]["error"] === 4 ){
             $gambar = $gambarLama;
         } else {
             $gambar = upload();
         }
 
-        $sql = "UPDATE kopi SET
-                    nama_kopi = '$nama_kopi',
-                    harga = $harga,
+        $sql = "UPDATE pelanggan SET
+                    nama_pelanggan = '$nama_pelanggan',
+                    email = '$email',
+                    no_tlp = '$no_tlp',
                     gambar = '$gambar'
-                WHERE id_kopi = $id_kopi";
+                WHERE id_pelanggan = $id_pelanggan";
 
         mysqli_query($conn, $sql);
         return mysqli_affected_rows($conn);
@@ -72,10 +75,11 @@
 
     // function cari
     function cari($keyword){
-        $sql = "SELECT * FROM kopi 
+        $sql = "SELECT * FROM pelanggan 
                     WHERE
-                nama_kopi LIKE '%$keyword%' OR
-                harga LIKE '%$keyword%'";
+                nama_pelanggan LIKE '%$keyword%' OR 
+                no_tlp LIKE '%$keyword%' OR 
+                email LIKE '%$keyword%'";
 
         return query($sql);
     }

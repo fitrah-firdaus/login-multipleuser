@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+table{
+    width: 90%;
+    margin: 2% auto;
+    border: 1px black solid;
+}
+
+th,
+td{
+    padding: 1%;
+    border: 1px black solid;
+    box-sizing: border-box;
+}
+
+.cari{
+    margin-top: 2%;
+}
